@@ -9,10 +9,6 @@
       <UniqueIdentifier>{6a090ae4-cc06-455e-83ce-89c895907087}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource files">
-      <UniqueIdentifier>{fd919442-9580-47f1-bb26-303d8c925476}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;ogg;mp3</Extensions>
-    </Filter>
     <Filter Include="Documentation">
       <UniqueIdentifier>{35c5cae9-14d1-4f99-85fd-39382fef0436}</UniqueIdentifier>
       <Extensions>md;pdf;xlsx;xls;doc;docx</Extensions>
@@ -20,6 +16,10 @@
     <Filter Include="Configuration Files">
       <UniqueIdentifier>{55a91e87-0500-4c03-8ec6-b8231e4e7404}</UniqueIdentifier>
       <Extensions>*.conf</Extensions>
+    </Filter>
+    <Filter Include="Configuration Files\Resource files">
+      <UniqueIdentifier>{fd919442-9580-47f1-bb26-303d8c925476}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;ogg;mp3</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,9 +63,6 @@
     <ClInclude Include="Sound.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="SoundTypes.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="SPIListener.h">
       <Filter>Header files</Filter>
     </ClInclude>
@@ -78,9 +75,6 @@
     <ClInclude Include="Action.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="ActionTypes.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="Daemon.h">
       <Filter>Header files</Filter>
     </ClInclude>
@@ -88,9 +82,6 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="EventOptions.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="EventTypes.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="GPIOListener.h">
@@ -108,13 +99,13 @@
       <Filter>Documentation</Filter>
     </None>
     <None Include="sounds\blaster-imperial.ogg">
-      <Filter>Resource files</Filter>
+      <Filter>Configuration Files\Resource files</Filter>
     </None>
     <None Include="sounds\blaster-tie.ogg">
-      <Filter>Resource files</Filter>
+      <Filter>Configuration Files\Resource files</Filter>
     </None>
     <None Include="sounds\breathing.ogg">
-      <Filter>Resource files</Filter>
+      <Filter>Configuration Files\Resource files</Filter>
     </None>
     <None Include="default-config\etc\tievox.conf">
       <Filter>Configuration Files</Filter>
@@ -129,7 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="sounds\imperial-march.mp3">
-      <Filter>Resource files</Filter>
+      <Filter>Configuration Files\Resource files</Filter>
     </Media>
   </ItemGroup>
 </Project>

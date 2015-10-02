@@ -79,15 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
-    <ClInclude Include="ActionTypes.h" />
     <ClInclude Include="Daemon.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventOptions.h" />
-    <ClInclude Include="EventTypes.h" />
     <ClInclude Include="GPIOListener.h" />
     <ClInclude Include="Listener.h" />
     <ClInclude Include="Sound.h" />
-    <ClInclude Include="SoundTypes.h" />
     <ClInclude Include="SPIListener.h" />
     <ClInclude Include="tievoxd.h" />
     <ClInclude Include="TimerListener.h" />
