@@ -26,16 +26,18 @@ using namespace std;
 
 #define EVENT_SPI_DRIVER_DETECTED_NAME  "DRIVER_DETECTED"
 
-/* GPIO Events use wiringPi pin numbers */
-#define EVENT_GPIO_PEDAL_PRESSED        21
-#define EVENT_GPIO_LEFT_TRIGGER         23
-#define EVENT_GPIO_RIGHT_TRIGGER        22
-#define EVENT_GPIO_ACCESSORY_ON         25
+/* GPIO Events use physical pin numbers */
+#define EVENT_GPIO_PEDAL_PRESSED        29
+#define EVENT_GPIO_LEFT_TRIGGER         15
+#define EVENT_GPIO_RIGHT_TRIGGER        16
+#define EVENT_GPIO_ACCESSORY_ON         37
+#define EVENT_GPIO_POWER_SWITCH         4
 
 #define EVENT_GPIO_PEDAL_PRESSED_NAME   "PEDAL_PRESSED"
 #define EVENT_GPIO_LEFT_TRIGGER_NAME    "LEFT_TRIGGER"
 #define EVENT_GPIO_RIGHT_TRIGGER_NAME   "RIGHT_TRIGGER"
 #define EVENT_GPIO_ACCESSORY_ON_NAME    "ACCESSORY_ON"
+#define EVENT_GPIO_POWER_SWITCH_NAME    "POWER"
 
 // Values in seconds
 #define EVENT_TIMER_MINUTELY        60

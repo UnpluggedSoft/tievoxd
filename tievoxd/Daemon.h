@@ -9,6 +9,7 @@
 #ifndef DAEMON_H
 #define	DAEMON_H
 
+#include <libconfig.h++>
 #include <string>
 #include <pthread.h>
 #include "tievoxd.h"
@@ -21,6 +22,9 @@ public:
     Daemon();
     virtual ~Daemon();
 
+    /* Configuration */
+    static libconfig::Config config;
+    
     /* Action, Sound and Event constants */
     const static string ActionTypes[];
     const static string EventTypes[];
@@ -50,6 +54,7 @@ public:
     
 private:
 	void SpawnListeners();
+    void LoadConfig();
 };
 
 #endif	/* DAEMON_H */

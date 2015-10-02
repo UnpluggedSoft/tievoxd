@@ -6,6 +6,7 @@
  * $Id$
  */
 
+#include <wiringPi.h>
 #include "Daemon.h"
 
 /**
@@ -15,6 +16,8 @@
  * @return
  */
 int main(int argc, char** argv) {
+    // Setup wiringPi, using physical pin numbers.
+    wiringPiSetupPhys();
 
     // TODO: Check for foreground flag
 

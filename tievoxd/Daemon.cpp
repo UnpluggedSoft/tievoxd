@@ -6,6 +6,7 @@
  * $Id$
  */
 
+#include <libconfig.h++>
 #include <pthread.h>
 #include <signal.h>
 #include <string>
@@ -16,6 +17,7 @@ using namespace std;
 
 Daemon::Daemon() {
     // Read configuration file
+    LoadConfig();
 
 	// Create & Spawn listeners
     /*Daemon::gpio = new GPIOListener();
@@ -50,6 +52,19 @@ void Daemon::SpawnListeners() {
     
 }
 
+void Daemon::LoadConfig()
+{
+    try
+    {
+        config.setIncludeDir("/etc");
+        config.readFile("/etc/tievox.conf");
+    }
+    catch (libconfig::FileIOException e)
+    {
+        // Log error.
+    }
+}
+
 /* Constant helper variables */
 const string Daemon::ActionTypes[] = { ACTION_TYPE_PLAY_SOUND };
 const string Daemon::EventTypes[] = { EVENT_TYPE_GPIO, EVENT_TYPE_SPI, EVENT_TYPE_TIMER }; 
@@ -58,7 +73,8 @@ const FromKeyMap::value_type stx[] = {
     make_pair(SOUND_TYPE_FOREGROUND_NAME, SOUND_TYPE_FOREGROUND),
     make_pair(SOUND_TYPE_BACKGROUND_NAME, SOUND_TYPE_BACKGROUND),
     make_pair(SOUND_TYPE_ALL_NAME, SOUND_TYPE_ALL)
-ds};
+ds 
+};
 
 const FromKeyMap Daemon::SoundTypes(stx, stx + sizeof stx / sizeof stx[0]);
 
@@ -88,7 +104,8 @@ const FromKeyMap::value_type gpiox[] = {
     make_pair(EVENT_GPIO_ACCESSORY_ON_NAME, EVENT_GPIO_ACCESSORY_ON),
     make_pair(EVENT_GPIO_LEFT_TRIGGER_NAME, EVENT_GPIO_LEFT_TRIGGER),
     make_pair(EVENT_GPIO_PEDAL_PRESSED_NAME, EVENT_GPIO_PEDAL_PRESSED),
-    make_pair(EVENT_GPIO_RIGHT_TRIGGER_NAME, EVENT_GPIO_RIGHT_TRIGGER)
+    make_pair(EVENT_GPIO_RIGHT_TRIGGER_NAME, EVENT_GPIO_RIGHT_TRIGGER),
+    make_pair(EVENT_GPIO_POWER_SWITCH_NAME, EVENT_GPIO_POWER_SWITCH)
 };
 
 const FromKeyMap gpioEvents(gpiox, gpiox + sizeof gpiox / sizeof gpiox[0]);
@@ -109,4 +126,3 @@ const FromKeySubMap::value_type ex[] = {
 };
 
 const FromKeySubMap Daemon::Events(ex, ex + sizeof ex / sizeof ex[0]);
-
