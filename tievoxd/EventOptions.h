@@ -1,8 +1,9 @@
 /*
  * File:   EventOptions.h
- * Author: jason
+ * Author: Jason Burgess <jason@notplugged.in>
  *
  * Created on September 30, 2015, 3:54 PM
+ * $Id$
  */
 
 #ifndef EVENTOPTIONS_H

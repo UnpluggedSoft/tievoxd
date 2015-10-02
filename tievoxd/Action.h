@@ -1,8 +1,9 @@
 /* 
  * File:   Action.h
- * Author: jason
+ * Author: Jason Burgess <jason@notplugged.in>
  *
  * Created on September 26, 2015, 11:06 PM
+ * $Id$
  */
 
 #ifndef ACTION_H

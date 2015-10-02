@@ -1,8 +1,9 @@
 /*
  * File:   Sound.h
- * Author: jason
+ * Author: Jason Burgess <jason@notplugged.in>
  *
  * Created on August 16, 2015, 9:22 PM
+ * $Id$
  */
 
 #ifndef SOUND_H

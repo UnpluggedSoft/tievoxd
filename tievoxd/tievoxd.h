@@ -1,12 +1,18 @@
 /* 
  * File:   tievoxd.h
- * Author: jason
+ * Author: Jason Burgess <jason@notplugged.in>
  *
  * Created on August 16, 2015, 9:22 PM
+ * $Id$
  */
 
 #ifndef TIEVOXD_H
 #define	TIEVOXD_H
+
+#include <map>
+#include <string>
+
+using namespace std;
 
 /* Action Constants */
 #define ACTION_TYPE_PLAY_SOUND "PLAY_SOUND"
@@ -31,9 +37,20 @@
 #define EVENT_GPIO_RIGHT_TRIGGER_NAME   "RIGHT_TRIGGER"
 #define EVENT_GPIO_ACCESSORY_ON_NAME    "ACCESSORY_ON"
 
+// Values in seconds
+#define EVENT_TIMER_MINUTELY        60
+#define EVENT_TIMER_HOURLY          3600
+#define EVENT_TIMER_DAILY           86400
+#define EVENT_TIMER_WEEKLY          604800
+
+#define EVENT_TIMER_MINUTELY_NAME   "MINUTE"
+#define EVENT_TIMER_HOURLY_NAME     "HOUR"
+#define EVENT_TIMER_DAILY_NAME      "DAY"
+#define EVENT_TIMER_WEEKLY_NAME     "WEEK"
+
 /* Sound Constants */
 #define SOUND_TYPE_FOREGROUND   0x01
-#define SOUND_TYPE_BACKGOUND    0x02
+#define SOUND_TYPE_BACKGROUND   0x02
 #define SOUND_TYPE_ALL          0x03
 
 #define SOUND_TYPE_FOREGROUND_NAME  "FOREGROUND"
@@ -47,6 +64,12 @@
 #define SOUND_REPEAT_NONE_NAME      "NO_REPEAT"
 #define SOUND_REPEAT_ONCE_NAME      "REPEAT_ONCE"
 #define SOUND_REPEAT_FOREVER_NAME   "REPEAT_FOREVER"
+
+/* Conversion variable types */
+typedef map<string, int> FromKeyMap;
+typedef map<int, string> ToKeyMap;
+typedef map<string, FromKeyMap> FromKeySubMap;
+typedef map<string, ToKeyMap> ToKeySubMap;
 
 #endif	/* TIEVOXD_H */
 

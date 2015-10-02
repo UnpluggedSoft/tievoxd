@@ -1,8 +1,9 @@
 /*
  * File:   Event.h
- * Author: jason
+ * Author: Jason Burgess <jason@notplugged.in>
  *
  * Created on August 16, 2015, 9:23 PM
+ * $Id$
  */
 
 #ifndef EVENT_H

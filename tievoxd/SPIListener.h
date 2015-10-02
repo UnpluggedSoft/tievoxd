@@ -1,8 +1,9 @@
 /*
  * File:   SPIListener.h
- * Author: jason
+ * Author: Jason Burgess <jason@notplugged.in>
  *
  * Created on September 26, 2015, 11:10 PM
+ * $Id$
  */
 
 #ifndef SPILISTENER_H
