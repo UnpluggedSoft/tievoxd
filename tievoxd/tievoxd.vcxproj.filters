@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{fa6f92c0-c5e9-41f5-95c7-3310d1436fc4}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{6a090ae4-cc06-455e-83ce-89c895907087}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{fd919442-9580-47f1-bb26-303d8c925476}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;ogg;mp3</Extensions>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{35c5cae9-14d1-4f99-85fd-39382fef0436}</UniqueIdentifier>
+      <Extensions>md;pdf;xlsx;xls;doc;docx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt">
+      <Filter>Source files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Action.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Daemon.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventOptons.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="GPIOListener.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Listener.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SPIListener.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="tievoxd.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerListener.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Sound.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundTypes.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SPIListener.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="tievoxd.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerListener.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Action.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionTypes.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Daemon.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventOptions.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventTypes.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="GPIOListener.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Listener.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LICENSE.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="README.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="sounds\blaster-imperial.ogg">
+      <Filter>Resource files</Filter>
+    </None>
+    <None Include="sounds\blaster-tie.ogg">
+      <Filter>Resource files</Filter>
+    </None>
+    <None Include="sounds\breathing.ogg">
+      <Filter>Resource files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="sounds\imperial-march.mp3">
+      <Filter>Resource files</Filter>
+    </Media>
+  </ItemGroup>
+</Project>
