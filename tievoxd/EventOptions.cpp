@@ -10,9 +10,6 @@
 EventOptions::EventOptions() {
 }
 
-EventOptions::EventOptions(const EventOptions& orig) {
-}
-
 EventOptions::~EventOptions() {
 }
 

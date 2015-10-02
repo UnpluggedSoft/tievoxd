@@ -11,7 +11,6 @@
 class Action {
 public:
     Action();
-    Action(const Action& orig);
     virtual ~Action();
 private:
 

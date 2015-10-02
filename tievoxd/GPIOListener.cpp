@@ -10,9 +10,6 @@
 GPIOListener::GPIOListener() {
 }
 
-GPIOListener::GPIOListener(const GPIOListener& orig) {
-}
-
 GPIOListener::~GPIOListener() {
 }
 

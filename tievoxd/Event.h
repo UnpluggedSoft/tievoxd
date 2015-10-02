@@ -17,7 +17,6 @@ using namespace std;
 class Event {
 public:
     Event();
-    Event(const Event& orig);
     virtual ~Event();
 protected:
     string name;

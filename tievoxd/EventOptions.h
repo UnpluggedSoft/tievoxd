@@ -11,7 +11,6 @@
 class EventOptions {
 public:
     EventOptions();
-    EventOptions(const EventOptions& orig);
     virtual ~EventOptions();
 private:
 

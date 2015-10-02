@@ -17,6 +17,10 @@
       <UniqueIdentifier>{35c5cae9-14d1-4f99-85fd-39382fef0436}</UniqueIdentifier>
       <Extensions>md;pdf;xlsx;xls;doc;docx</Extensions>
     </Filter>
+    <Filter Include="Configuration Files">
+      <UniqueIdentifier>{55a91e87-0500-4c03-8ec6-b8231e4e7404}</UniqueIdentifier>
+      <Extensions>*.conf</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt">
@@ -31,9 +35,6 @@
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="Event.cpp">
-      <Filter>Source files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventOptons.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="GPIOListener.cpp">
@@ -52,6 +53,9 @@
       <Filter>Source files</Filter>
     </ClCompile>
     <ClCompile Include="TimerListener.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventOptions.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -112,6 +116,16 @@
     <None Include="sounds\breathing.ogg">
       <Filter>Resource files</Filter>
     </None>
+    <None Include="default-config\etc\tievox.conf">
+      <Filter>Configuration Files</Filter>
+    </None>
+    <None Include="default-config\etc\tievox.d\events.conf">
+      <Filter>Configuration Files</Filter>
+    </None>
+    <None Include="default-config\etc\tievox.d\sounds.conf">
+      <Filter>Configuration Files</Filter>
+    </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="sounds\imperial-march.mp3">

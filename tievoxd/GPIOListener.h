@@ -13,7 +13,6 @@
 class GPIOListener : public Listener {
 public:
     GPIOListener();
-    GPIOListener(const GPIOListener& orig);
     virtual ~GPIOListener();
 private:
 

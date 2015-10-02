@@ -19,7 +19,6 @@ public:
 
     Sound();
     Sound(char* fileName, bool repeat);
-    Sound(const Sound& orig);
     virtual ~Sound();
 
     bool Play();

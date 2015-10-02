@@ -15,9 +15,6 @@ Sound::Sound(char* fileName, bool repeat) {
     this->isRepeating = repeat;
 }
 
-Sound::Sound(const Sound& orig) {
-}
-
 Sound::~Sound() {
 }
 

@@ -10,9 +10,6 @@
 SPIListener::SPIListener() {
 }
 
-SPIListener::SPIListener(const SPIListener& orig) {
-}
-
 SPIListener::~SPIListener() {
 }
 

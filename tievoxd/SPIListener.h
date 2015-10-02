@@ -13,7 +13,6 @@
 class SPIListener : public Listener {
 public:
     SPIListener();
-    SPIListener(const SPIListener& orig);
     virtual ~SPIListener();
 private:
 
