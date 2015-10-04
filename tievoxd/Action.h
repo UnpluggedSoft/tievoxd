@@ -9,10 +9,18 @@
 #ifndef ACTION_H
 #define	ACTION_H
 
+#include <libconfig.h++>
+#include <string>
+
+using namespace std;
+
 class Action {
 public:
     Action();
+    Action(libconfig::Setting *event);
     virtual ~Action();
+    
+    string Type;
 private:
 
 };

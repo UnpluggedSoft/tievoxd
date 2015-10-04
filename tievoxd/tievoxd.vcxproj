@@ -67,31 +67,36 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="ActionPlaySound.cpp" />
     <ClCompile Include="Daemon.cpp" />
     <ClCompile Include="Event.cpp" />
-    <ClCompile Include="EventOptions.cpp" />
     <ClCompile Include="GPIOListener.cpp" />
     <ClCompile Include="Listener.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SPIListener.cpp" />
     <ClCompile Include="tievoxd.cpp" />
+    <ClCompile Include="TIEVoxInfo.cpp" />
     <ClCompile Include="TimerListener.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="ActionPlaySound.h" />
     <ClInclude Include="Daemon.h" />
     <ClInclude Include="Event.h" />
-    <ClInclude Include="EventOptions.h" />
     <ClInclude Include="GPIOListener.h" />
     <ClInclude Include="Listener.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SPIListener.h" />
     <ClInclude Include="tievoxd.h" />
+    <ClInclude Include="TIEVoxInfo.h" />
     <ClInclude Include="TimerListener.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="default-config\etc\tievox.conf" />
+    <None Include="default-config\etc\tievox.conf">
+      <FileType>Text</FileType>
+      <DeploymentContent>false</DeploymentContent>
+    </None>
     <None Include="default-config\etc\tievox.d\events.conf" />
     <None Include="default-config\etc\tievox.d\sounds.conf" />
     <None Include="LICENSE.md" />

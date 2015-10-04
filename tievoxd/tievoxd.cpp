@@ -6,6 +6,7 @@
  * $Id$
  */
 
+#include <syslog.h>
 #include <wiringPi.h>
 #include "Daemon.h"
 
@@ -16,6 +17,9 @@
  * @return
  */
 int main(int argc, char** argv) {
+    // Setup logging
+    openlog("tievox", LOG_PERROR | LOG_PID | LOG_CONS, LOG_DAEMON);
+    
     // Setup wiringPi, using physical pin numbers.
     wiringPiSetupPhys();
 
@@ -23,5 +27,8 @@ int main(int argc, char** argv) {
 
     Daemon *daemon = new Daemon();
     return daemon->Run();
+    
+    // Cleanup after ourselves
+    closelog();
 }
 

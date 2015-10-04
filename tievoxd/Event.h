@@ -9,6 +9,7 @@
 #ifndef EVENT_H
 #define	EVENT_H
 
+#include <libconfig.h++>
 #include <string>
 #include "Action.h"
 #include "EventOptions.h"
@@ -18,11 +19,15 @@ using namespace std;
 class Event {
 public:
     Event();
+    Event(libconfig::Setting *event);
     virtual ~Event();
-protected:
-    string name;
-    Action action;
-    EventOptions options;
+    void GetOptions(libconfig::Setting *eventConfig);
+
+    string Name;
+    string Type;
+    string EventName;
+    
+    Action *EventAction;
 private:
 
 };

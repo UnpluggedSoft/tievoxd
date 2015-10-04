@@ -13,7 +13,9 @@
 #include <string>
 #include <pthread.h>
 #include "tievoxd.h"
+#include "Event.h"
 #include "GPIOListener.h"
+#include "Sound.h"
 #include "SPIListener.h"
 #include "TimerListener.h"
 
@@ -23,25 +25,15 @@ public:
     virtual ~Daemon();
 
     /* Configuration */
-    static libconfig::Config config;
-    
-    /* Action, Sound and Event constants */
-    const static string ActionTypes[];
-    const static string EventTypes[];
-    
-    const static FromKeyMap SoundTypes;
-    
-    const static ToKeyMap SoundRepeatCounts; 
-    const static ToKeyMap SoundTypeNames;
-    
-    
-    const static FromKeySubMap Events;
-    const static ToKeySubMap EventNames;
-    
+    static libconfig::Config Config;
+    static string Version;
+     
     /* Methods */    
     int Run();
     
     /* Fields */
+    static Event *EventList;
+    static Sound *SoundList;
 
     /* Static Fields */
     static GPIOListener gpio;
@@ -55,6 +47,14 @@ public:
 private:
 	void SpawnListeners();
     void LoadConfig();
+    void BuildEvents();
+    void BuildSounds();
+    static void ValidateVersion();
+    void BuildEvent(libconfig::Setting *eventConfig);
+    void BuildSound(libconfig::Setting *arg1);
+    
+    int soundCount = 0;
+    int eventCount = 0;
 };
 
 #endif	/* DAEMON_H */

@@ -6,25 +6,41 @@
  * $Id$
  */
 
+#include <libconfig.h++>
+#include <string>
 #include "Sound.h"
+#include "tievoxd.h"
+#include "TIEVoxInfo.h"
 
 Sound::Sound() {
 }
 
-Sound::Sound(char* fileName, bool repeat) {
-    this->fileName = fileName;
-    this->isRepeating = repeat;
+Sound::Sound(libconfig::Setting *sound)
+{
+    string value;
+
+    // TODO: Validate lookups
+    sound->lookupValue("title", Name);
+    sound->lookupValue("file", FileName);
+
+    sound->lookupValue("type", value);
+    SoundType = TIEVoxInfo::SoundTypes[value];
+    
+    sound->lookupValue("repeat", value);
+    RepeatType = TIEVoxInfo::SoundRepeatCounts[value];
+    
+    // TODO: Validate file exists
 }
 
 Sound::~Sound() {
 }
 
 bool Sound::Play() {
-    return this->Play(false);
+    return this->Play(SOUND_PLAY_BOTH);
 }
 
-bool Sound::Play(bool repeat) {
-    this->isRepeating = repeat;
+bool Sound::Play(int side) {
+    
 }
 
 bool Sound::Stop() {

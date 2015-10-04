@@ -35,6 +35,7 @@
         <string>*.md</string>
         <string>*.ogg</string>
         <string>*.mp3</string>
+        <string>*.conf</string>
       </FileMasks>
       <TransferNewFilesOnly>true</TransferNewFilesOnly>
       <IncludeSubdirectories>true</IncludeSubdirectories>
@@ -51,6 +52,7 @@
     <RelativeSourceDirectory />
     <ConfigurationType>DEBUG</ConfigurationType>
     <BinaryDirectory>Debug</BinaryDirectory>
+    <MainCMakeTarget>tievoxd</MainCMakeTarget>
     <Toolchain>
       <Name>Default GCC toolchain on TIEVox</Name>
       <UnixSystem>true</UnixSystem>
@@ -117,7 +119,7 @@
       </Environment>
     </CMakeCommand>
     <UpdateSourcesInCMakeFile>true</UpdateSourcesInCMakeFile>
-    <ExportCompileCommands>false</ExportCompileCommands>
+    <ExportCompileCommands>true</ExportCompileCommands>
     <DisableToolchainFile>false</DisableToolchainFile>
   </Build>
   <Debug xsi:type="com.visualgdb.debug.remote">

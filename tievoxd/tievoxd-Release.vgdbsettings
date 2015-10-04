@@ -19,7 +19,7 @@
         <UserName />
       </RemoteHost>
       <LocalDirectory>$(ProjectDir)</LocalDirectory>
-      <RemoteDirectory>/tmp/VisualGDB/$(ProjectDirUnixStyle)</RemoteDirectory>
+      <RemoteDirectory>/usr/local/src/tievoxd</RemoteDirectory>
       <FileMasks>
         <string>*.cpp</string>
         <string>*.h</string>
@@ -35,10 +35,10 @@
         <string>*.md</string>
         <string>*.ogg</string>
         <string>*.mp3</string>
+        <string>*.conf</string>
       </FileMasks>
       <TransferNewFilesOnly>true</TransferNewFilesOnly>
       <IncludeSubdirectories>true</IncludeSubdirectories>
-      <SelectedDirectories />
     </MainSourceTransferCommand>
     <AllowChangingHostForMainCommands>false</AllowChangingHostForMainCommands>
     <SkipBuildIfNoSourceFilesChanged>false</SkipBuildIfNoSourceFilesChanged>

@@ -17,7 +17,7 @@
       <UniqueIdentifier>{55a91e87-0500-4c03-8ec6-b8231e4e7404}</UniqueIdentifier>
       <Extensions>*.conf</Extensions>
     </Filter>
-    <Filter Include="Configuration Files\Resource files">
+    <Filter Include="Resource files">
       <UniqueIdentifier>{fd919442-9580-47f1-bb26-303d8c925476}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;ogg;mp3</Extensions>
     </Filter>
@@ -55,7 +55,10 @@
     <ClCompile Include="TimerListener.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
-    <ClCompile Include="EventOptions.cpp">
+    <ClCompile Include="TIEVoxInfo.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionPlaySound.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -81,13 +84,16 @@
     <ClInclude Include="Event.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="EventOptions.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="GPIOListener.h">
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="Listener.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="TIEVoxInfo.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionPlaySound.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -99,13 +105,13 @@
       <Filter>Documentation</Filter>
     </None>
     <None Include="sounds\blaster-imperial.ogg">
-      <Filter>Configuration Files\Resource files</Filter>
+      <Filter>Resource files</Filter>
     </None>
     <None Include="sounds\blaster-tie.ogg">
-      <Filter>Configuration Files\Resource files</Filter>
+      <Filter>Resource files</Filter>
     </None>
     <None Include="sounds\breathing.ogg">
-      <Filter>Configuration Files\Resource files</Filter>
+      <Filter>Resource files</Filter>
     </None>
     <None Include="default-config\etc\tievox.conf">
       <Filter>Configuration Files</Filter>
@@ -120,7 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="sounds\imperial-march.mp3">
-      <Filter>Configuration Files\Resource files</Filter>
+      <Filter>Resource files</Filter>
     </Media>
   </ItemGroup>
 </Project>
