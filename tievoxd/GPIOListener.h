@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef GPIOLISTENER_H
-#define	GPIOLISTENER_H
+#pragma once
 
 #include "Listener.h"
 
@@ -21,6 +20,3 @@ public:
 private:
 
 };
-
-#endif	/* GPIOLISTENER_H */
-

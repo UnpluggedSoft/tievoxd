@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef TIEVOXD_H
-#define	TIEVOXD_H
+#pragma once
 
 #include <map>
 #include <string>
@@ -88,6 +87,3 @@ typedef map<string, int> FromKeyMap;
 typedef map<int, string> ToKeyMap;
 typedef map<string, FromKeyMap> FromKeySubMap;
 typedef map<string, ToKeyMap> ToKeySubMap;
-
-#endif	/* TIEVOXD_H */
-

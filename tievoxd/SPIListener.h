@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef SPILISTENER_H
-#define	SPILISTENER_H
+#pragma once
 
 #include "Listener.h"
 
@@ -18,6 +17,3 @@ public:
 private:
 
 };
-
-#endif	/* SPILISTENER_H */
-

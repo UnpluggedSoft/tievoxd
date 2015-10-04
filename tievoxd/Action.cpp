@@ -10,7 +10,6 @@
 #include <string>
 #include "Action.h"
 
-
 Action::Action() {
 }
 

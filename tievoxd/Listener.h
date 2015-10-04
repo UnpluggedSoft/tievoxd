@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef LISTENER_H
-#define	LISTENER_H
+#pragma once
 
 #include <pthread.h>
 
@@ -20,6 +19,3 @@ public:
     static void *SpawnAction(void *context);
 private:
 };
-
-#endif	/* LISTENER_H */
-

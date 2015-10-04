@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef TIMERLISTENER_H
-#define	TIMERLISTENER_H
+#pragma once
 
 #include "Listener.h"
 
@@ -18,6 +17,3 @@ public:
 private:
 
 };
-
-#endif	/* TIMERLISTENER_H */
-

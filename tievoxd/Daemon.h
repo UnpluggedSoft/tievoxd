@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef DAEMON_H
-#define	DAEMON_H
+#pragma once
 
 #include <libconfig.h++>
 #include <string>
@@ -56,6 +55,3 @@ private:
     int soundCount = 0;
     int eventCount = 0;
 };
-
-#endif	/* DAEMON_H */
-

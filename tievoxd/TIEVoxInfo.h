@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef TIEVOXINFO_H
-#define TIEVOXINFO_H
+#pragma once
 
 #include <string>
 #include "tievoxd.h"
@@ -29,5 +28,3 @@ public:
     const static FromKeySubMap Events;
     const static ToKeySubMap EventNames;
 };
-
-#endif

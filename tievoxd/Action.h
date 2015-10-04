@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef ACTION_H
-#define	ACTION_H
+#pragma once
 
 #include <libconfig.h++>
 #include <string>
@@ -24,6 +23,3 @@ public:
 private:
 
 };
-
-#endif	/* ACTION_H */
-

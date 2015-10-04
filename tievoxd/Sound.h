@@ -6,8 +6,7 @@
  * $Id$
  */
 
-#ifndef SOUND_H
-#define	SOUND_H
+#pragma once
 
 #include <libconfig.h++>
 #include <string>
@@ -31,6 +30,3 @@ public:
     bool Stop(bool immediate);
 private:
 };
-
-#endif	/* SOUND_H */
-
