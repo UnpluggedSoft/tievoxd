@@ -8,12 +8,18 @@
 
 #pragma once
 
+#include <libconfig.h++>
 #include "Action.h"
+#include "Sound.cpp"
 
 class ActionPlaySound :
 	public Action
 {
 public:
-    ActionPlaySound();
+    ActionPlaySound(libconfig::Setting *event);
     ~ActionPlaySound();
+    
+    Sound Sound;
+    int Repeat;
+    int Side; 
 };
