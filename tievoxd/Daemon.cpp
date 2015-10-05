@@ -13,6 +13,7 @@
 #include <syslog.h>
 #include "Daemon.h"
 #include "tievoxd.h"
+#include "RPinInfo.h"
 
 using namespace std;
 
@@ -53,27 +54,25 @@ void Daemon::SpawnListeners() {
     result = pthread_create(&timerThread, NULL, &TimerListener::SpawnAction, &timer);
 }
 
-void Daemon::LoadConfig()
-{
-    try
-    {
+void Daemon::LoadConfig() {
+    try {
         Config.setIncludeDir("/etc");
         Config.readFile("/etc/tievox.conf");
-    }
-    catch (libconfig::FileIOException e)
-    {
+    } catch (libconfig::FileIOException e) {
         syslog(LOG_CRIT, "Failed to open tievox.conf. Exiting...");
         exit(EXIT_FAILURE);
     }
     
-    if (!Config.lookupValue("version", Version))
-    {
+    if (!Config.lookupValue("version", Version)) {
         // Failed to load version number in config
         Version = "0.0.0";
     }
     
     // Ensure configuration version is compatible
     ValidateVersion();
+    
+    // Setup Pins
+    SetupPinDefaults();
     
     // Create sounds (Must happen before BuildEvents
     BuildSounds();
@@ -82,52 +81,41 @@ void Daemon::LoadConfig()
     BuildEvents();    
 }
 
-void Daemon::BuildEvents()
-{
+void Daemon::BuildEvents() {
     libconfig::Setting *eventConfig;
     eventConfig = &Config.lookup("events");
     
-    if (eventConfig->isArray())
-    {
+    if (eventConfig->isArray()) {
         int count = eventConfig->getLength();
         EventList = new Event[count]();
     
-        for (int i = 0; i < count; ++i)
-        {
+        for (int i = 0; i < count; ++i) {
             BuildEvent(&eventConfig[i]);
         }
-    }
-    else if (eventConfig->isGroup())
-    {
+    } else if (eventConfig->isGroup()) {
         EventList = new Event[1];
         BuildEvent(eventConfig);
     }
 }
 
-void Daemon::BuildSounds()
-{
+void Daemon::BuildSounds() {
     libconfig::Setting *soundConfig;
     soundConfig = &Config.lookup("sounds");
     
-    if (soundConfig->isArray())
-    {
+    if (soundConfig->isArray()) {
         int count = soundConfig->getLength();
         SoundList = new Sound[count]();
     
-        for (int i = 0; i < count; ++i)
-        {
+        for (int i = 0; i < count; ++i) {
             BuildSound(&soundConfig[i]);
         }
-    }
-    else if (soundConfig->isGroup())
-    {
+    } else if (soundConfig->isGroup()) {
         SoundList = new Sound[1];
         BuildSound(soundConfig);
     }
 }
 
-void Daemon::ValidateVersion()
-{
+void Daemon::ValidateVersion() {
     // Parse config version
     int major = 0;
     int minor = 0;
@@ -145,12 +133,10 @@ void Daemon::ValidateVersion()
 }
 
 
-void Daemon::BuildEvent(libconfig::Setting *eventConfig)
-{
+void Daemon::BuildEvent(libconfig::Setting *eventConfig) {
     EventList[eventCount++] = Event(eventConfig);
 }
 
-void Daemon::BuildSound(libconfig::Setting *soundConfig)
-{
+void Daemon::BuildSound(libconfig::Setting *soundConfig) {
     SoundList[soundCount++] = Sound(soundConfig);
 }

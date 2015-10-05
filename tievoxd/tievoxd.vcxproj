@@ -72,6 +72,7 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GPIOListener.cpp" />
     <ClCompile Include="Listener.cpp" />
+    <ClCompile Include="RPinInfo.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SPIListener.cpp" />
     <ClCompile Include="tievoxd.cpp" />
@@ -85,6 +86,8 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="GPIOListener.h" />
     <ClInclude Include="Listener.h" />
+    <ClInclude Include="RPin.h" />
+    <ClInclude Include="RPinInfo.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SPIListener.h" />
     <ClInclude Include="tievoxd.h" />
