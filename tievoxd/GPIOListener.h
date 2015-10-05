@@ -8,15 +8,25 @@
 
 #pragma once
 
+#include <map>
 #include "Listener.h"
+#include "Event.h"
+
+using namespace std;
+
+typedef map<int, int> PinState;
+typedef map<int, Event> PinEvent;
 
 class GPIOListener : public Listener {
 public:
     GPIOListener();
     virtual ~GPIOListener();
     
+    PinState Pins;
+    PinEvent Events;
+    
     void Run();
-    void SetupPins();
+    void Setup();
 private:
 
 };

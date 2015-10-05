@@ -28,9 +28,9 @@ Daemon::Daemon() {
 
 Daemon::~Daemon() {
     // Kill listeners
-    pthread_kill(gpioThread, SIGHUP);
-    pthread_kill(spiThread, SIGHUP);
-    pthread_kill(timerThread, SIGHUP);
+    pthread_kill(gpioThread, SIGSTOP);
+    pthread_kill(spiThread, SIGSTOP);
+    pthread_kill(timerThread, SIGSTOP);
     
     // TODO: Cleanup memory
 }
