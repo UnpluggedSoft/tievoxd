@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include "ActionSystem.h"
 
-ActionSystem::ActionSystem(libconfig::Setting event) {
+ActionSystem::ActionSystem(libconfig::Setting *event) {
     event->lookupValue("command", Command);    
 }
 

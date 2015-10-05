@@ -10,7 +10,7 @@
 
 #include <libconfig.h++>
 #include "Action.h"
-#include "Sound.cpp"
+#include "Sound.h"
 
 class ActionPlaySound :
 	public Action
@@ -19,7 +19,7 @@ public:
     ActionPlaySound(libconfig::Setting *event);
     ~ActionPlaySound();
     
-    Sound Sound;
+    Sound ActionSound;
     int Repeat;
     int Side; 
 };

@@ -16,7 +16,7 @@ class ActionSystem :
 	public Action
 {
 public:
-	ActionSystem(libconfig::Setting event);
+	ActionSystem(libconfig::Setting *event);
 	~ActionSystem();
     
     void Do();

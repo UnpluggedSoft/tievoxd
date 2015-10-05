@@ -10,12 +10,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-#include <wiringPi.h>;
+#include <wiringPi.h>
 #include "ActionLED.h"
 #include "RPin.h"
 
 ActionLED::ActionLED(libconfig::Setting *event)
     : Action(event) {
+    // Defaults:
+    BlinkDelayOff = 0;
+    BlinkDelayOn = 0;
+    StopPin = PIN_NULL;
+    StopCondition = PIN_PULL_LOW;
+    PinsSetup = false;
+        
     event->lookupValue("pin", Pin);
     event->lookupValue("blink_on", BlinkDelayOn);
     event->lookupValue("blink_off", BlinkDelayOff);
@@ -35,8 +42,7 @@ void * ActionLED::Run(void *context) {
     ((ActionLED *)context)->On();
 }
 
-void *ActionLED : Wait(void *context)
-{
+void *ActionLED::Wait(void *context) {
     ((ActionLED*)context)->DoWait();
 }
 
@@ -80,8 +86,7 @@ void ActionLED::On() {
     }
 }
 
-void ActionLED::ForceOff()
-{
+void ActionLED::ForceOff() {
     Off(true);
 }
 

@@ -28,6 +28,7 @@ using namespace std;
 /* Action Constants */
 #define ACTION_TYPE_PLAY_SOUND          "PLAY_SOUND"
 #define ACTION_TYPE_LED                 "LED"
+#define ACTION_TYPE_SYSTEM              "SYSTEM"
 
 /* Event Constants */
 #define EVENT_TYPE_SPI                  "SPI"

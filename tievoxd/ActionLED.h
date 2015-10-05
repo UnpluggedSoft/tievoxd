@@ -25,10 +25,10 @@ public:
     void Do();
     
     int Pin;
-    int BlinkDelayOff = 0;
-    int BlinkDelayOn = 0;
-    int StopPin = PIN_NULL;
-    int StopCondition = PIN_PULL_LOW;
+    int BlinkDelayOff;
+    int BlinkDelayOn;
+    int StopPin;
+    int StopCondition;
     
     static void *Run(void *context);
     static void *Wait(void *context);
@@ -44,6 +44,6 @@ public:
     pthread_t WThread;
 
 private:
-    int PinsSetup = false;
+    int PinsSetup;
 };
 

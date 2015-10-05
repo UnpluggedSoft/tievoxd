@@ -7,9 +7,10 @@
  */
 
 #include <libconfig.h++>
+#include <string>
 #include <pthread.h>
 #include <signal.h>
-#include <string>
+#include <stdlib.h>
 #include <syslog.h>
 #include "Daemon.h"
 #include "tievoxd.h"
@@ -112,16 +113,19 @@ void Daemon::ValidateVersion() {
     int major = 0;
     int minor = 0;
     string::size_type i, j;
+    string majorStr, minorStr;
     
     i = Version.find('.');
-    major = stoi(Version.substr(0, i));
+    majorStr = Version.substr(0, i);
+    major = atoi(majorStr.c_str());
+    
     j = Version.find('.', i + 1);
-    minor = stoi(Version.substr(i + 1, j - i));
+    minorStr = Version.substr(i + 1, j - i);
+    minor = atoi(minorStr.c_str());
     
     // TODO: Compare against config version and daemon version
     
-    
-    syslog(LOG_INFO, "Configuration version info: %n, %n.", major, minor);
+    syslog(LOG_INFO, "Configuration version info: %d, %d.", major, minor);
 }
 
 void Daemon::BuildEvent(libconfig::Setting *eventConfig) {

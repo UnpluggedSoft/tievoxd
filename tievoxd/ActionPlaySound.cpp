@@ -20,7 +20,7 @@ ActionPlaySound::ActionPlaySound(libconfig::Setting *event)
     // TODO: Validate lookups
     // TODO: Validate data
     event->lookupValue("sound", value);
-    Sound = Daemon::GetSound(value);
+    ActionSound = Daemon::GetSound(value);
       
     if (event->lookupValue("sound_repeat", value)) {
         Repeat = TIEVoxInfo::SoundRepeats.find(value)->second;    

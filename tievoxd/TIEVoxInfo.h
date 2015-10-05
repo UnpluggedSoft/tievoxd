@@ -27,10 +27,10 @@ public:
     const static string EventTypes[];
     
     const static FromKeyMap SoundTypes;
-    const static FromKeyMap SoundRepeats;
+	const static ToKeyMap SoundTypeNames;
     
-    const static ToKeyMap SoundRepeatCounts; 
-    const static ToKeyMap SoundTypeNames;
+    const static FromKeyMap SoundRepeatCounts; 
+	const static ToKeyMap SoundRepeats;
     
     const static FromKeySubMap Events;
     const static ToKeySubMap EventNames;

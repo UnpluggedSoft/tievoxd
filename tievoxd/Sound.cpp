@@ -24,10 +24,10 @@ Sound::Sound(libconfig::Setting *sound)
     sound->lookupValue("file", FileName);
 
     sound->lookupValue("type", value);
-    SoundType = TIEVoxInfo::SoundTypes[value];
+    SoundType = TIEVoxInfo::SoundTypes.find(value)->second;
     
     sound->lookupValue("repeat", value);
-    RepeatType = TIEVoxInfo::SoundRepeatCounts[value];
+    RepeatType = TIEVoxInfo::SoundRepeats.find(value)->second;
     
     // TODO: Validate file exists
 }
@@ -36,7 +36,7 @@ Sound::~Sound() {
 }
 
 bool Sound::Play() {
-    return this->Play(SOUND_PLAY_BOTH);
+    return Play(SOUND_PLAY_BOTH);
 }
 
 bool Sound::Play(int side) {
