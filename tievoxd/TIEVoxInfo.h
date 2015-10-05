@@ -13,6 +13,12 @@
 
 using namespace std;
 
+/* Conversion variable types */
+typedef map<string, int> FromKeyMap;
+typedef map<int, string> ToKeyMap;
+typedef map<string, FromKeyMap> FromKeySubMap;
+typedef map<string, ToKeyMap> ToKeySubMap;
+
 class TIEVoxInfo
 {
 public:
@@ -21,6 +27,7 @@ public:
     const static string EventTypes[];
     
     const static FromKeyMap SoundTypes;
+    const static FromKeyMap SoundRepeats;
     
     const static ToKeyMap SoundRepeatCounts; 
     const static ToKeyMap SoundTypeNames;

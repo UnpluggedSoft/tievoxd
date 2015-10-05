@@ -10,22 +10,31 @@
 #include <string>
 #include "Event.h"
 #include "Action.h"
+#include "ActionPlaySound.h"
+#include "ActionLED.h"
 
 Event::Event() {
 }
 
 Event::Event(libconfig::Setting *event)
 {
-    string value;
+    string actionName;
 
     // TODO: Validate lookups
+    // TODO: Validate data   
     event->lookupValue("title", Name);
     event->lookupValue("type", Type);
     event->lookupValue("name", EventName);
     
+    event->lookupValue("action", actionName);
+    // TODO: Add other action types
+    if (actionName == "PLAY_SOUND")
+    {
+        EventAction = new ActionPlaySound(event);
+    }
+    
     EventAction = new Action(event);
 
-    // TODO: Validate data   
 }
 
 Event::~Event() {

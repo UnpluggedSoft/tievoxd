@@ -19,3 +19,8 @@ Action::Action(libconfig::Setting *event)
 
 Action::~Action() {
 }
+
+void Action::Do()
+{
+    // Do nothing
+}

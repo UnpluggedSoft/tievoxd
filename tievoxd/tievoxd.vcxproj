@@ -67,7 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
+    <ClCompile Include="ActionLED.cpp" />
     <ClCompile Include="ActionPlaySound.cpp" />
+    <ClCompile Include="ActionSystem.cpp" />
     <ClCompile Include="Daemon.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GPIOListener.cpp" />
@@ -81,7 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="ActionLED.h" />
     <ClInclude Include="ActionPlaySound.h" />
+    <ClInclude Include="ActionSystem.h" />
     <ClInclude Include="Daemon.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="GPIOListener.h" />

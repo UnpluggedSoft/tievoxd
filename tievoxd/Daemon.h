@@ -20,42 +20,47 @@
 #include "SPIListener.h"
 #include "TimerListener.h"
 
+// Map Types
+typedef map<string, Event> EventSubMap;
+typedef map<string, EventSubMap> EventMap;
+typedef map<string, Sound> SoundMap;
+
 class Daemon {
 public:
-	Daemon();
-	virtual ~Daemon();
+    Daemon();
+    virtual ~Daemon();
 
     /* Configuration */
-	static libconfig::Config Config;
-	static string Version;
+    static libconfig::Config Config;
+    static string Version;
     
     static RPin RPinInfo[41];
     
 	/* Methods */    
-	int Run();
+    int Run();
+    
+    static Event GetEvent(string type, string name);
+    static Sound GetSound(string name);    
     
 	/* Fields */
-	static Event *EventList;
-	static Sound *SoundList;
+    static EventMap EventList;
+    static SoundMap SoundList;
 
-	    /* Static Fields */
-	static GPIOListener gpio;
-	static SPIListener spi;
-	static TimerListener timer;
+    /* Static Fields */
+    static GPIOListener gpio;
+    static SPIListener spi;
+    static TimerListener timer;
 
-	static pthread_t gpioThread;
-	static pthread_t spiThread;
-	static pthread_t timerThread;
+    static pthread_t gpioThread;
+    static pthread_t spiThread;
+    static pthread_t timerThread;
     
 private:
-	void SpawnListeners();
-	void LoadConfig();
-	void BuildEvents();
-	void BuildSounds();
-	static void ValidateVersion();
-	void BuildEvent(libconfig::Setting *eventConfig);
-	void BuildSound(libconfig::Setting *arg1);
-    
-	int soundCount = 0;
-	int eventCount = 0;
-}
+    static void SpawnListeners();
+    static void LoadConfig();
+    static void BuildEvents();
+    static void BuildSounds();
+    static void ValidateVersion();
+    static void BuildEvent(libconfig::Setting *eventConfig);
+    static void BuildSound(libconfig::Setting *soundConfig);
+};

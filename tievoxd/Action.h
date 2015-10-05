@@ -19,6 +19,8 @@ public:
     Action(libconfig::Setting *event);
     virtual ~Action();
     
+    virtual void Do();
+    
     string Type;
 private:
 

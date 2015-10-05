@@ -64,6 +64,12 @@
     <ClCompile Include="RPinInfo.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="ActionLED.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionSystem.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sound.h">
@@ -103,6 +109,12 @@
       <Filter>Header files</Filter>
     </ClInclude>
     <ClInclude Include="RPinInfo.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionLED.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionSystem.h">
       <Filter>Header files</Filter>
     </ClInclude>
   </ItemGroup>

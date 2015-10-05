@@ -23,8 +23,6 @@ Daemon::Daemon() {
 
     // Spawn listeners
     SpawnListeners();
-
-
 }
 
 Daemon::~Daemon() {
@@ -33,9 +31,7 @@ Daemon::~Daemon() {
     pthread_kill(spiThread, SIGHUP);
     pthread_kill(timerThread, SIGHUP);
     
-    // Cleanup memory
-    delete[] EventList;
-    delete[] SoundList;
+    // TODO: Cleanup memory
 }
 
 int Daemon::Run() {
@@ -72,7 +68,7 @@ void Daemon::LoadConfig() {
     ValidateVersion();
     
     // Setup Pins
-    SetupPinDefaults();
+    RPinInfo::SetupPins();
     
     // Create sounds (Must happen before BuildEvents
     BuildSounds();
@@ -87,13 +83,11 @@ void Daemon::BuildEvents() {
     
     if (eventConfig->isArray()) {
         int count = eventConfig->getLength();
-        EventList = new Event[count]();
-    
+        
         for (int i = 0; i < count; ++i) {
             BuildEvent(&eventConfig[i]);
         }
     } else if (eventConfig->isGroup()) {
-        EventList = new Event[1];
         BuildEvent(eventConfig);
     }
 }
@@ -104,13 +98,11 @@ void Daemon::BuildSounds() {
     
     if (soundConfig->isArray()) {
         int count = soundConfig->getLength();
-        SoundList = new Sound[count]();
-    
+        
         for (int i = 0; i < count; ++i) {
             BuildSound(&soundConfig[i]);
         }
     } else if (soundConfig->isGroup()) {
-        SoundList = new Sound[1];
         BuildSound(soundConfig);
     }
 }
@@ -132,11 +124,39 @@ void Daemon::ValidateVersion() {
     syslog(LOG_INFO, "Configuration version info: %n, %n.", major, minor);
 }
 
-
 void Daemon::BuildEvent(libconfig::Setting *eventConfig) {
-    EventList[eventCount++] = Event(eventConfig);
+    Event event = Event(eventConfig);
+    EventList[event.Type][event.Name] = event;
 }
 
 void Daemon::BuildSound(libconfig::Setting *soundConfig) {
-    SoundList[soundCount++] = Sound(soundConfig);
+    Sound sound = Sound(soundConfig);
+    SoundList[sound.Name] = sound;
+}
+
+Event Daemon::GetEvent(string type, string name) {
+    EventMap::const_iterator git = EventList.find(type);
+    if (git == EventList.end())
+    {
+        return NULL;
+    }
+    
+    EventSubMap::const_iterator eit = (*git).second.find(name);
+    if (eit == (*git).second.end())
+    {
+        return NULL;
+    }
+    
+    return (*eit).second;
+}
+
+
+Sound Daemon::GetSound(string name) {
+    SoundMap::const_iterator sit = SoundList.find(name);
+    if (sit == SoundList.end())
+    {
+        return NULL;
+    }
+    
+    return (*sit).second;
 }

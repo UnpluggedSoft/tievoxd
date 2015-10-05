@@ -27,15 +27,20 @@ using namespace std;
 
 /* Action Constants */
 #define ACTION_TYPE_PLAY_SOUND          "PLAY_SOUND"
+#define ACTION_TYPE_LED                 "LED"
 
 /* Event Constants */
 #define EVENT_TYPE_SPI                  "SPI"
 #define EVENT_TYPE_GPIO                 "GPIO"
 #define EVENT_TYPE_TIMER                "TIMER"
 
-#define EVENT_SPI_DRIVER_DETECTED       0x01
+#define EVENT_SPI_DRIVER_AT_DOOR        0x01
+#define EVENT_SPI_DRIVER_DETECTED       0x02
+#define EVENT_SPI_PASSENGER_DETECTED    0x04
 
-#define EVENT_SPI_DRIVER_DETECTED_NAME  "DRIVER_DETECTED"
+#define EVENT_SPI_DRIVER_AT_DOOR_NAME       "DRIVER_AT_DOOR"
+#define EVENT_SPI_DRIVER_DETECTED_NAME      "DRIVER_DETECTED"
+#define EVENT_SPI_PASSENGER_DETECTED_NAME   "PASSENGER_DETECTED"
 
 /* GPIO Events use physical pin numbers */
 #define EVENT_GPIO_PEDAL_PRESSED        29
@@ -81,9 +86,3 @@ using namespace std;
 #define SOUND_PLAY_LEFT                 0x01
 #define SOUND_PLAY_RIGHT                0x02
 #define SOUND_PLAY_BOTH                 0x03
-
-/* Conversion variable types */
-typedef map<string, int> FromKeyMap;
-typedef map<int, string> ToKeyMap;
-typedef map<string, FromKeyMap> FromKeySubMap;
-typedef map<string, ToKeyMap> ToKeySubMap;

@@ -11,7 +11,6 @@
 #include <libconfig.h++>
 #include <string>
 #include "Action.h"
-#include "EventOptions.h"
 
 using namespace std;
 
