@@ -25,6 +25,7 @@ GPIOListener::~GPIOListener() {
 void GPIOListener::Run()
 {
     Setup();
+    CheckRun();
     
     int state;
     PinState::iterator it;
@@ -33,7 +34,7 @@ void GPIOListener::Run()
     while (1)
     {
         // Let the thread sleep for 1/10th of a second.
-        usleep(100);
+        usleep(LISTENER_SLEEP_DELAY);
         
         // Check pin sets
         for (it = Pins.begin(); it != Pins.end(); ++it)
@@ -59,17 +60,17 @@ void GPIOListener::Run()
  */
 void GPIOListener::Setup()
 {
-    EventSubMap events = Daemon::EventList.find("GPIO")->second;
-    FromKeyMap eventPins = TIEVoxInfo::Events.find("GPIO")->second;
+    EventSubMap eventsGPIO = Daemon::EventList.find("GPIO")->second;
+    FromKeyMap events = TIEVoxInfo::Events.find("GPIO")->second;
     
     EventSubMap::iterator it;
     FromKeyMap::const_iterator pit;
     
     int pin;
     
-    for (it = events.begin(); it != events.end(); ++it)
+    for (it = eventsGPIO.begin(); it != eventsGPIO.end(); ++it)
     {
-        pin = eventPins.find(it->second.EventName)->second;
+        pin = events.find(it->second.EventName)->second;
 
         // Setup pin for input.
         pinMode(pin, INPUT);
@@ -80,4 +81,5 @@ void GPIOListener::Setup()
         // Add event to list
         Events[pin] = it->second;
     }
+    
 }

@@ -30,13 +30,7 @@ public:
     Daemon();
     virtual ~Daemon();
 
-    /* Configuration */
-    static libconfig::Config Config;
-    static string Version;
-    
-    static RPin RPinInfo[41];
-    
-	/* Methods */    
+    /* Methods */    
     int Run();
     
     static Event GetEvent(string type, string name);
@@ -54,7 +48,12 @@ public:
     static pthread_t gpioThread;
     static pthread_t spiThread;
     static pthread_t timerThread;
+
+    /* Configuration */
+	static libconfig::Config Config;
+	static string Version;
     
+	static RPin RPinInfo[41];
 private:
     static void SpawnListeners();
     static void LoadConfig();

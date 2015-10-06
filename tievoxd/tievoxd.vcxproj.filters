@@ -70,6 +70,9 @@
     <ClCompile Include="ActionSystem.cpp">
       <Filter>Source files</Filter>
     </ClCompile>
+    <ClCompile Include="RPin.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sound.h">

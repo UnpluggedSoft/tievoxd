@@ -87,3 +87,7 @@ using namespace std;
 #define SOUND_PLAY_LEFT                 0x01
 #define SOUND_PLAY_RIGHT                0x02
 #define SOUND_PLAY_BOTH                 0x03
+
+/* SPI Interfaces */
+#define SPI_BUS_CAR                     0x00
+#define SPI_BUS_RF                      0x01

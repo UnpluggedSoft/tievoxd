@@ -48,15 +48,15 @@ const FromKeyMap::value_type srcx[] = {
 
 const FromKeyMap TIEVoxInfo::SoundRepeatCounts(srcx, srcx + sizeof srcx / sizeof srcx[0]);
 
-const ToKeyMap::value_type espix[] = { 
+const FromKeyMap::value_type espix[] = { 
     make_pair(EVENT_SPI_DRIVER_AT_DOOR_NAME, EVENT_SPI_DRIVER_AT_DOOR),
     make_pair(EVENT_SPI_DRIVER_DETECTED_NAME, EVENT_SPI_DRIVER_DETECTED),
     make_pair(EVENT_SPI_PASSENGER_DETECTED_NAME, EVENT_SPI_PASSENGER_DETECTED)
 };
 
-const ToKeyMap spiEvents(espix, espix + sizeof espix / sizeof espix[0]);
+const FromKeyMap spiEvents(espix, espix + sizeof espix / sizeof espix[0]);
 
-const ToKeyMap::value_type gpiox[] = { 
+const FromKeyMap::value_type gpiox[] = { 
     make_pair(EVENT_GPIO_ACCESSORY_ON_NAME, EVENT_GPIO_ACCESSORY_ON),
     make_pair(EVENT_GPIO_LEFT_TRIGGER_NAME, EVENT_GPIO_LEFT_TRIGGER),
     make_pair(EVENT_GPIO_PEDAL_PRESSED_NAME, EVENT_GPIO_PEDAL_PRESSED),
@@ -64,21 +64,21 @@ const ToKeyMap::value_type gpiox[] = {
     make_pair(EVENT_GPIO_POWER_SWITCH_NAME, EVENT_GPIO_POWER_SWITCH)
 };
 
-const ToKeyMap gpioEvents(gpiox, gpiox + sizeof gpiox / sizeof gpiox[0]);
+const FromKeyMap gpioEvents(gpiox, gpiox + sizeof gpiox / sizeof gpiox[0]);
 
-const ToKeyMap::value_type timerx[] = { 
+const FromKeyMap::value_type timerx[] = { 
     make_pair(EVENT_TIMER_MINUTELY_NAME, EVENT_TIMER_MINUTELY),
     make_pair(EVENT_TIMER_HOURLY_NAME, EVENT_TIMER_HOURLY),
     make_pair(EVENT_TIMER_DAILY_NAME, EVENT_TIMER_DAILY),
     make_pair(EVENT_TIMER_WEEKLY_NAME, EVENT_TIMER_WEEKLY)
 };
 
-const ToKeyMap timerEvents(timerx, timerx + sizeof timerx / sizeof timerx[0]);
+const FromKeyMap timerEvents(timerx, timerx + sizeof timerx / sizeof timerx[0]);
 
-const ToKeySubMap::value_type ex[] = { 
+const FromKeySubMap::value_type ex[] = { 
     make_pair(EVENT_TYPE_GPIO, gpioEvents),
     make_pair(EVENT_TYPE_SPI, spiEvents),
     make_pair(EVENT_TYPE_TIMER, timerEvents)
 };
 
-const ToKeySubMap TIEVoxInfo::EventNames(ex, ex + sizeof ex / sizeof ex[0]);
+const FromKeySubMap TIEVoxInfo::Events(ex, ex + sizeof ex / sizeof ex[0]);

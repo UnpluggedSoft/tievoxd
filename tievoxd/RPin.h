@@ -9,7 +9,6 @@
 #pragma once
 
 #include <string>
-#include <wiringPi.h>
 
 using namespace std;
 
@@ -38,46 +37,14 @@ public:
     string ALT0;
     string ALT5;
     
-    RPin(int pin, int gpio, int wPi, int pull, int type, string name)
-        : Pin(pin)
-        , GPIO(gpio)
-        , WPi(wPi)
-        , Pull(pull)
-        , Type(type)
-        , Name(name)
-        , ALT0("")
-        , ALT5("") {
-    }
-
-    RPin(int pin, int gpio, int wPi, int pull, int type, string name, string alt0, string alt5)
-        : Pin(pin)
-        , GPIO(gpio)
-        , WPi(wPi)
-        , Pull(pull)
-        , Type(type)
-        , Name(name)
-        , ALT0(alt0)
-        , ALT5(alt5) {
-    }
-    
-    ~RPin() {
-    }
+	RPin(int pin, int gpio, int wPi, int pull, int type, string name);
+	RPin(int pin, int gpio, int wPi, int pull, int type, string name, string alt0, string alt5);
+	~RPin();
     
     /**
      * Perform initialization of pin if needed to make sure it's set up like we want.
      */
-    void StartupPrepare() {
-        switch (Type) {
-        case PIN_TYPE_GPIO:
-            // Turn off pull up/pull down by default
-            pullUpDnControl(Pin, PUD_OFF);
-            break;
-        case PIN_TYPE_PWM:
-            // Turn on PWM mode, if it isn't.
-            pullUpDnControl(Pin, PUD_OFF);
-            pinMode(Pin, PWM_OUTPUT);
-        }
-    }
+	void StartupPrepare();
     
     // TODO: See if we need some more helper functions here.
 };

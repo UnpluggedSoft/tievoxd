@@ -27,7 +27,7 @@ Sound::Sound(libconfig::Setting *sound)
     SoundType = TIEVoxInfo::SoundTypes.find(value)->second;
     
     sound->lookupValue("repeat", value);
-    RepeatType = TIEVoxInfo::SoundRepeats.find(value)->second;
+    RepeatType = TIEVoxInfo::SoundRepeatCounts.find(value)->second;
     
     // TODO: Validate file exists
 }

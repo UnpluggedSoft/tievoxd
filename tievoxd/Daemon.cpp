@@ -28,9 +28,9 @@ Daemon::Daemon() {
 
 Daemon::~Daemon() {
     // Kill listeners
-    pthread_kill(gpioThread, SIGSTOP);
-    pthread_kill(spiThread, SIGSTOP);
-    pthread_kill(timerThread, SIGSTOP);
+	pthread_kill(gpioThread, SIGSTOP);
+	pthread_kill(spiThread, SIGSTOP);
+	pthread_kill(timerThread, SIGSTOP);
     
     // TODO: Cleanup memory
 }
@@ -44,25 +44,25 @@ void Daemon::SpawnListeners() {
     int result;
     
     // TODO: Check results for problems.
-    result = pthread_create(&gpioThread, NULL, &GPIOListener::SpawnAction, &gpio);
+	result = pthread_create(&gpioThread, NULL, &GPIOListener::SpawnAction, &gpio);
     
-    result = pthread_create(&spiThread, NULL, &SPIListener::SpawnAction, &spi);
+	result = pthread_create(&spiThread, NULL, &SPIListener::SpawnAction, &spi);
     
-    result = pthread_create(&timerThread, NULL, &TimerListener::SpawnAction, &timer);
+	result = pthread_create(&timerThread, NULL, &TimerListener::SpawnAction, &timer);
 }
 
 void Daemon::LoadConfig() {
     try {
-        Config.setIncludeDir("/etc");
-        Config.readFile("/etc/tievox.conf");
+	    Config.setIncludeDir("/etc");
+	    Config.readFile("/etc/tievox.conf");
     } catch (libconfig::FileIOException e) {
         syslog(LOG_CRIT, "Failed to open tievox.conf. Exiting...");
         exit(EXIT_FAILURE);
     }
     
-    if (!Config.lookupValue("version", Version)) {
+	if (!Config.lookupValue("version", Version)) {
         // Failed to load version number in config
-        Version = "0.0.0";
+		Version = "0.0.0";
     }
     
     // Ensure configuration version is compatible
@@ -80,7 +80,7 @@ void Daemon::LoadConfig() {
 
 void Daemon::BuildEvents() {
     libconfig::Setting *eventConfig;
-    eventConfig = &Config.lookup("events");
+	eventConfig = &Config.lookup("events");
     
     if (eventConfig->isArray()) {
         int count = eventConfig->getLength();
@@ -95,7 +95,7 @@ void Daemon::BuildEvents() {
 
 void Daemon::BuildSounds() {
     libconfig::Setting *soundConfig;
-    soundConfig = &Config.lookup("sounds");
+	soundConfig = &Config.lookup("sounds");
     
     if (soundConfig->isArray()) {
         int count = soundConfig->getLength();
@@ -115,12 +115,12 @@ void Daemon::ValidateVersion() {
     string::size_type i, j;
     string majorStr, minorStr;
     
-    i = Version.find('.');
-    majorStr = Version.substr(0, i);
+	i = Version.find('.');
+	majorStr = Version.substr(0, i);
     major = atoi(majorStr.c_str());
     
-    j = Version.find('.', i + 1);
-    minorStr = Version.substr(i + 1, j - i);
+	j = Version.find('.', i + 1);
+	minorStr = Version.substr(i + 1, j - i);
     minor = atoi(minorStr.c_str());
     
     // TODO: Compare against config version and daemon version
@@ -130,17 +130,17 @@ void Daemon::ValidateVersion() {
 
 void Daemon::BuildEvent(libconfig::Setting *eventConfig) {
     Event event = Event(eventConfig);
-    EventList[event.Type][event.Name] = event;
+	EventList[event.Type][event.Name] = event;
 }
 
 void Daemon::BuildSound(libconfig::Setting *soundConfig) {
     Sound sound = Sound(soundConfig);
-    SoundList[sound.Name] = sound;
+	SoundList[sound.Name] = sound;
 }
 
 Event Daemon::GetEvent(string type, string name) {
-    EventMap::const_iterator git = EventList.find(type);
-    if (git == EventList.end())
+	EventMap::const_iterator git = EventList.find(type);
+	if (git == Daemon::EventList.end())
     {
         return NULL;
     }
@@ -156,8 +156,8 @@ Event Daemon::GetEvent(string type, string name) {
 
 
 Sound Daemon::GetSound(string name) {
-    SoundMap::const_iterator sit = SoundList.find(name);
-    if (sit == SoundList.end())
+	SoundMap::const_iterator sit = SoundList.find(name);
+	if (sit == SoundList.end())
     {
         return NULL;
     }

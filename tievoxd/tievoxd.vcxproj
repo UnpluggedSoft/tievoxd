@@ -74,6 +74,7 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GPIOListener.cpp" />
     <ClCompile Include="Listener.cpp" />
+    <ClCompile Include="RPin.cpp" />
     <ClCompile Include="RPinInfo.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SPIListener.cpp" />

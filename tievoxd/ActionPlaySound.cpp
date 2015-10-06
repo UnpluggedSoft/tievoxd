@@ -23,7 +23,7 @@ ActionPlaySound::ActionPlaySound(libconfig::Setting *event)
     ActionSound = Daemon::GetSound(value);
       
     if (event->lookupValue("sound_repeat", value)) {
-        Repeat = TIEVoxInfo::SoundRepeats.find(value)->second;    
+        Repeat = TIEVoxInfo::SoundRepeatCounts.find(value)->second;    
     } else {
         Repeat = SOUND_REPEAT_NONE; 
     }

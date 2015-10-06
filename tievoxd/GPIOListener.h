@@ -15,7 +15,6 @@
 using namespace std;
 
 typedef map<int, int> PinState;
-typedef map<int, Event> PinEvent;
 
 class GPIOListener : public Listener {
 public:
@@ -23,7 +22,7 @@ public:
     virtual ~GPIOListener();
     
     PinState Pins;
-    PinEvent Events;
+    IntEvent Events;
     
     void Run();
     void Setup();
