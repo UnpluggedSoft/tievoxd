@@ -53,7 +53,7 @@ public:
 	static libconfig::Config Config;
 	static string Version;
     
-	static RPin RPinInfo[41];
+	static RPin RPinInfo[];
 private:
     static void SpawnListeners();
     static void LoadConfig();
