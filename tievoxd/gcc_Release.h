@@ -125,6 +125,9 @@
 #ifndef __SIZEOF_POINTER__
 #define __SIZEOF_POINTER__ 4
 #endif
+#ifndef NDEBUG
+#define NDEBUG 1
+#endif
 #ifndef __USER_LABEL_PREFIX__
 #define __USER_LABEL_PREFIX__ 
 #endif
@@ -242,9 +245,6 @@
 #endif
 #ifndef __SIZEOF_WINT_T__
 #define __SIZEOF_WINT_T__ 4
-#endif
-#ifndef __GCC_HAVE_DWARF2_CFI_ASM
-#define __GCC_HAVE_DWARF2_CFI_ASM 1
 #endif
 #ifndef __GXX_ABI_VERSION
 #define __GXX_ABI_VERSION 1002
@@ -615,12 +615,6 @@
 #ifndef __ARM_FEATURE_DSP
 #define __ARM_FEATURE_DSP 1
 #endif
-#ifndef NDEBUG
-#define NDEBUG 
-#endif
-#ifndef RELEASE
-#define RELEASE 
-#endif
 #endif
 
 // --- Include directories begin --- //
@@ -632,6 +626,7 @@
 ///usr/lib/gcc/arm-linux-gnueabihf/4.6/include-fixed
 ///usr/include/arm-linux-gnueabihf
 ///usr/include
+//Release
 // --- Include directories end --- //
 
 

@@ -3,6 +3,80 @@
 
 cmake_minimum_required(VERSION 2.7)
 project(tievoxd)
+
+# Current project version
+set(tievoxd_VERSION_MAJOR 0)
+set(tievoxd_VERSION_MINOR 1)
+set(tievoxd_VERSION_REVISION 0)
+
+# Configure header with version and other info
+configure_file (
+  "${PROJECT_SOURCE_DIR}/tievoxd.h.in"
+  "${PROJECT_SOURCE_DIR}/generated/tievoxd.h")
+
+# Be sure to include updated header
+include_directories(${CONFIGURATION}/generated)
+
 set(LIBRARIES_FROM_REFERENCES "")
 add_executable(tievoxd Action.cpp ActionLED.cpp ActionPlaySound.cpp ActionSystem.cpp Daemon.cpp Event.cpp GPIOListener.cpp Listener.cpp RPin.cpp RPinInfo.cpp Sound.cpp SPIListener.cpp tievoxd.cpp TIEVoxInfo.cpp TimerListener.cpp)
-target_link_libraries(tievoxd -lpthread -lconfig++ -lmpg123 -lvorbis -lwiringPi "${LIBRARIES_FROM_REFERENCES}")
+target_link_libraries(tievoxd -lpthread -lconfig++ -lmpg123 -lvorbis -lwiringPi -lboost_program_options "${LIBRARIES_FROM_REFERENCES}")
+
+# Install Sound Resources
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/sounds
+	DESTINATION share/${PROJECT_NAME}
+	FILE_PERMISSIONS WORLD_READ OWNER_WRITE OWNER_READ
+	DIRECTORY_PERMISSIONS WORLD_READ WORLD_EXECUTE OWNER_WRITE OWNER_READ OWNER_EXECUTE
+	COMPONENT sounds
+	CONFIGURATIONS Debug Release)
+
+# Install Default Confiuration to share
+install (DIRECTORY ${PROJECT_SOURCE_DIR}/default-config
+	DESTINATION share/${PROJECT_NAME}
+	FILE_PERMISSIONS WORLD_READ OWNER_WRITE OWNER_READ
+	DIRECTORY_PERMISSIONS WORLD_READ WORLD_EXECUTE OWNER_WRITE OWNER_READ OWNER_EXECUTE
+	COMPONENT config
+	CONFIGURATIONS Debug Release)
+install (DIRECTORY ${PROJECT_SOURCE_DIR}/default-config/
+	DESTINATION etc
+	FILE_PERMISSIONS WORLD_READ OWNER_WRITE OWNER_READ
+	DIRECTORY_PERMISSIONS WORLD_READ WORLD_EXECUTE OWNER_WRITE OWNER_READ OWNER_EXECUTE
+	COMPONENT config
+	CONFIGURATIONS Debug Release)
+
+# Update Configuration
+# TODO: Fix this so it doesn't overwrite user changes
+install(FILES ${PROJECT_SOURCE_DIR}/default-config/tievox.conf.default
+	DESTINATION etc
+	PERMISSIONS WORLD_READ OWNER_WRITE OWNER_READ
+	COMPONENT config
+	CONFIGURATIONS Debug Release
+	RENAME tievox.conf)
+file(MAKE_DIRECTORY etc/tievox.d)
+install(FILES ${PROJECT_SOURCE_DIR}/default-config/tievox.d/sounds.conf.default
+	DESTINATION etc/tievox.d
+	PERMISSIONS WORLD_READ OWNER_WRITE OWNER_READ
+	COMPONENT config
+	CONFIGURATIONS Debug Release
+	RENAME sounds.conf)
+install(FILES ${PROJECT_SOURCE_DIR}/default-config/tievox.d/events.conf.default
+	DESTINATION etc/tievox.d
+	PERMISSIONS WORLD_READ OWNER_WRITE OWNER_READ
+	COMPONENT config
+	CONFIGURATIONS Debug Release
+	RENAME events.conf)
+
+# Install documentation
+install (DIRECTORY ${PROJECT_SOURCE_DIR}/docs/
+	DESTINATION share/${PROJECT_NAME}
+	FILE_PERMISSIONS WORLD_READ OWNER_WRITE OWNER_READ
+	DIRECTORY_PERMISSIONS WORLD_READ WORLD_EXECUTE OWNER_WRITE OWNER_READ OWNER_EXECUTE
+	COMPONENT docs
+	CONFIGURATIONS Debug Release)
+
+# Install executable
+install(TARGETS tievoxd
+	DESTINATION sbin
+	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ SETGID SETUID
+	CONFIGURATIONS Release
+	COMPONENT tievoxd)
+set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} )

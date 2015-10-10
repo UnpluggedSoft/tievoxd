@@ -37,7 +37,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6\arm-linux-gnueabihf;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0001\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0003\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0002\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\arm-linux-gnueabihf;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6\arm-linux-gnueabihf;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0001\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0003\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0002\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\arm-linux-gnueabihf;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include;generated;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
@@ -49,9 +49,8 @@
     <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6\arm-linux-gnueabihf;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0001\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0003\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0002\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\arm-linux-gnueabihf;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6\arm-linux-gnueabihf;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\c++\4.6\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0001\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0003\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0002\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include\arm-linux-gnueabihf;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\tievox\0000\include;Release;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
-    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Release;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
@@ -59,11 +58,13 @@
     <IncludePath />
     <ReferencePath />
     <LibraryPath />
+    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Release;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="CMakeLists.txt" />
+    <Text Include="docs\INSTALL.md" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp" />
@@ -88,6 +89,8 @@
     <ClInclude Include="ActionPlaySound.h" />
     <ClInclude Include="ActionSystem.h" />
     <ClInclude Include="Daemon.h" />
+    <ClInclude Include="generated\tievoxd.h" />
+    <ClInclude Include="tievoxd.h.in" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="GPIOListener.h" />
     <ClInclude Include="Listener.h" />
@@ -101,14 +104,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
-    <None Include="default-config\etc\tievox.conf">
+    <None Include="default-config\tievox.conf.default">
       <FileType>Text</FileType>
       <DeploymentContent>false</DeploymentContent>
     </None>
-    <None Include="default-config\etc\tievox.d\events.conf" />
-    <None Include="default-config\etc\tievox.d\sounds.conf" />
-    <None Include="LICENSE.md" />
-    <None Include="README.md" />
+    <None Include="default-config\tievox.d\events.conf.default" />
+    <None Include="default-config\tievox.d\sounds.conf.default" />
+    <None Include="docs\LICENSE.md" />
+    <None Include="docs\README.md" />
     <None Include="sounds\blaster-imperial.ogg" />
     <None Include="sounds\blaster-tie.ogg" />
     <None Include="sounds\breathing.ogg" />

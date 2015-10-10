@@ -32,14 +32,16 @@
         <string>*.cmake</string>
         <string>CMakeLists.txt</string>
         <string>*.cmake</string>
+        <string>*.in</string>
         <string>*.md</string>
         <string>*.ogg</string>
         <string>*.mp3</string>
         <string>*.conf</string>
+        <string>*.default</string>
+        <string>*.conf</string>
       </FileMasks>
       <TransferNewFilesOnly>true</TransferNewFilesOnly>
       <IncludeSubdirectories>true</IncludeSubdirectories>
-      <SelectedDirectories />
     </MainSourceTransferCommand>
     <AllowChangingHostForMainCommands>false</AllowChangingHostForMainCommands>
     <SkipBuildIfNoSourceFilesChanged>false</SkipBuildIfNoSourceFilesChanged>

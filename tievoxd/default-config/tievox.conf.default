@@ -1,0 +1,5 @@
+# Default TIEVox configuration files.
+
+version="0.l.0"
+
+@include "tievox.d/*.conf"

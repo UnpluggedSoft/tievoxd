@@ -26,6 +26,9 @@
     <Text Include="CMakeLists.txt">
       <Filter>Source files</Filter>
     </Text>
+    <Text Include="docs\INSTALL.md">
+      <Filter>Documentation</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Action.cpp">
@@ -81,9 +84,6 @@
     <ClInclude Include="SPIListener.h">
       <Filter>Header files</Filter>
     </ClInclude>
-    <ClInclude Include="tievoxd.h">
-      <Filter>Header files</Filter>
-    </ClInclude>
     <ClInclude Include="TimerListener.h">
       <Filter>Header files</Filter>
     </ClInclude>
@@ -120,14 +120,17 @@
     <ClInclude Include="ActionSystem.h">
       <Filter>Header files</Filter>
     </ClInclude>
+    <ClInclude Include="tievoxd.h.in">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="tievoxd.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="generated\tievoxd.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="LICENSE.md">
-      <Filter>Documentation</Filter>
-    </None>
-    <None Include="README.md">
-      <Filter>Documentation</Filter>
-    </None>
     <None Include="sounds\blaster-imperial.ogg">
       <Filter>Resource files</Filter>
     </None>
@@ -137,16 +140,22 @@
     <None Include="sounds\breathing.ogg">
       <Filter>Resource files</Filter>
     </None>
-    <None Include="default-config\etc\tievox.conf">
-      <Filter>Configuration Files</Filter>
-    </None>
-    <None Include="default-config\etc\tievox.d\events.conf">
-      <Filter>Configuration Files</Filter>
-    </None>
-    <None Include="default-config\etc\tievox.d\sounds.conf">
-      <Filter>Configuration Files</Filter>
-    </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="docs\LICENSE.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="docs\README.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="default-config\tievox.d\events.conf.default">
+      <Filter>Configuration Files</Filter>
+    </None>
+    <None Include="default-config\tievox.d\sounds.conf.default">
+      <Filter>Configuration Files</Filter>
+    </None>
+    <None Include="default-config\tievox.conf.default">
+      <Filter>Configuration Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Media Include="sounds\imperial-march.mp3">

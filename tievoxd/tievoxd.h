@@ -13,11 +13,14 @@
 
 using namespace std;
 
-/* Version Information */
-#define VERSION                         "0.1.0"
+#include "generated/tievoxd.h"
+
+#ifndef VERSION
+#define VERSION                         "0.0.0"
 #define VERSION_MAJOR                   0
-#define VERSION_MINOR                   1
+#define VERSION_MINOR                   0
 #define VERSION_REVISION                0
+#endif
 
 /* Last version of config file to break backwards compatibility */ 
 #define CONFIG_VERSION                  "0.0.0"
